@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯知识库 · 简明指南</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f5f7fa;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #0b1a2e 0%, #1b2f44 100%);
+      color: #e2e8f0;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      border-bottom: 3px solid #f59e0b;
+    }
+
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 0.6rem;
+      color: #ffffff;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 680px;
+      margin: 0 auto;
+      color: #cbd5e1;
+    }
+
+    .hero .badge {
+      display: inline-block;
+      margin-top: 1.2rem;
+      background: #f59e0b;
+      color: #0b1a2e;
+      font-weight: 600;
+      font-size: 0.8rem;
+      padding: 0.3rem 1.2rem;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* 主要内容容器 — 目录感布局 */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.2rem 1.5rem 3.5rem;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      border-left: 4px solid #f59e0b;
+      padding-left: 0.75rem;
+      margin-bottom: 1.5rem;
+      color: #0f172a;
+    }
+
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+    }
+
+    /* 卡片风格 */
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 1.6rem 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      border: 1px solid #e9edf2;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin-bottom: 0.6rem;
+    }
+
+    .card p,
+    .card li {
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 0.4rem;
+    }
+
+    .card li {
+      padding: 0.25rem 0;
+      position: relative;
+      padding-left: 1.4rem;
+    }
+
+    .card li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #f59e0b;
+    }
+
+    /* 链接强调色 */
+    a {
+      color: #d97706;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s, color 0.15s;
+    }
+
+    a:hover {
+      color: #b45309;
+      border-bottom-color: #b45309;
+    }
+
+    /* 提示区 —— 带背景标识 */
+    .notice-area {
+      background: #fef9e7;
+      border-radius: 16px;
+      padding: 1.8rem 1.8rem 1.8rem 2.2rem;
+      margin: 2.8rem 0 2.2rem;
+      border-left: 6px solid #f59e0b;
+    }
+
+    .notice-area h2 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #7b4f0a;
+      margin-bottom: 0.8rem;
+    }
+
+    .notice-area p {
+      color: #5c4817;
+      font-size: 0.96rem;
+    }
+
+    .notice-area ul {
+      list-style: none;
+      margin-top: 0.6rem;
+    }
+
+    .notice-area li {
+      font-size: 0.95rem;
+      padding: 0.2rem 0;
+      padding-left: 1.6rem;
+      position: relative;
+      color: #5c4817;
+    }
+
+    .notice-area li::before {
+      content: "⚙";
+      position: absolute;
+      left: 0;
+      color: #b45309;
+    }
+
+    /* 相关信息区 (FAQ 摘要风格) */
+    .faq-mini {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .faq-item {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      border: 1px solid #e2e8f0;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-size: 0.95rem;
+      color: #0f172a;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item span {
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    /* 列表页脚 */
+    .footer-note {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #64748b;
+      border-top: 1px solid #dde3ea;
+      padding-top: 1.5rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 1.9rem;
+      }
+
+      .grid-2col {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .faq-mini {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        padding: 1.8rem 1rem 2.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 2.5rem 1rem 2rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+
+      .card,
+      .notice-area {
+        padding: 1.2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>世界杯知识库·简明指南</h1>
+    <p>赛事信息 · 观赛路径 · 实时资源 — 聚合为一处目录式参考</p>
+    <span class="badge">目录入口</span>
+  </header>
+
+  <main class="container">
+    <!-- 介绍区 + 特点 —— 两列目录结构 -->
+    <div class="grid-2col">
+      <div class="card">
+        <h3>关于本页</h3>
+        <p>这里聚合了与世界杯相关的核心概念、观赛准备与常用信息节点。内容侧重快速查阅与场景指引，适合赛前熟悉或赛中快速定位。所有外部资源均导向唯一平台：<a href="https://play-cn-worldcup.com">世界杯</a>。</p>
+        <p style="margin-top: 0.8rem;">页面设计为知识库入口式，不包含实时比分，但提供必要的背景说明与访问提示。</p>
+      </div>
+      <div class="card">
+        <h3>结构特点</h3>
+        <ul>
+          <li>分模块呈现：说明、提示、FAQ 摘要</li>
+          <li>重点标注访问前注意事项</li>
+          <li>信息密度适中，适合快速浏览</li>
+          <li>所有链接指向同一指定站点</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 场景 + 补充说明 —— 也是两列 -->
+    <div class="grid-2col" style="margin-top: 1.8rem;">
+      <div class="card">
+        <h3>常见使用场景</h3>
+        <ul>
+          <li>赛前查询赛程与分组背景</li>
+          <li>了解观赛平台基础路径</li>
+          <li>确认访问环境与设备兼容性</li>
+          <li>获取赛事相关简明术语说明</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>信息说明</h3>
+        <p>本页内容基于公开赛事信息整理，不包含实时数据流或流媒体源。推荐通过官方合作站点获取最新动态。核心入口为 <a href="https://play-cn-worldcup.com">世界杯</a> 资源页。</p>
+        <p style="margin-top: 0.6rem;">所有外部引用均以用户自主查阅为前提，不提供自动跳转或代理服务。</p>
+      </div>
+    </div>
+
+    <!-- 提示区 —— 差异化放置 -->
+    <div class="notice-area">
+      <h2>访问前提示</h2>
+      <p>为确保顺利获取信息，建议留意以下几点：</p>
+      <ul>
+        <li>确认网络环境能够稳定访问目标站点</li>
+        <li>部分功能可能需要允许浏览器弹出窗口或启用 JavaScript</li>
+        <li>赛程密集时段站点可能拥堵，建议错峰或提前加载</li>
+        <li>移动设备与桌面端表现基本一致，但布局可能自适应调整</li>
+        <li>如遇访问异常，可尝试清除缓存或更换网络后重试</li>
+      </ul>
+    </div>
+
+    <!-- 相关信息区 —— FAQ 摘要风格 -->
+    <div>
+      <div class="section-title">相关信息 · 快速问答摘要</div>
+      <div class="faq-mini">
+        <div class="faq-item">
+          <strong>赛程信息在哪里查？</strong>
+          <span>全部赛程与分组可通过 <a href="https://play-cn-worldcup.com">世界杯</a> 页面获取，该入口聚合了最新赛事时间表。</span>
+        </div>
+        <div class="faq-item">
+          <strong>是否需要注册？</strong>
+          <span>大部分内容免费查阅，部分互动功能可能要求账号登录，具体以页面提示为准。</span>
+        </div>
+        <div class="faq-item">
+          <strong>多语言支持？</strong>
+          <span>主界面以中文为主，同时提供英语切换选项，可在页面顶部选择。</span>
+        </div>
+        <div class="faq-item">
+          <strong>移动端适配？</strong>
+          <span>站点采用响应式布局，手机与平板均可正常浏览，推荐横向使用以获更好视野。</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 再次强调主链接（句子中自然插入） -->
+    <div style="margin-top: 2.4rem; background: #f1f5f9; padding: 1.2rem 1.6rem; border-radius: 14px;">
+      <p style="font-size: 0.95rem; color: #1e293b;">
+        所有信息路径统一归集于 <a href="https://play-cn-worldcup.com">世界杯</a> 这一枢纽页面，建议将其添加至浏览器书签以方便后续多次查阅。
+      </p>
+    </div>
+
+    <div class="footer-note">
+      <p>知识库入口版 · 内容基于公开信息整理 · 2025</p>
+    </div>
+  </main>
+</body>
+</html>
